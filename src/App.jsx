@@ -1,4 +1,4 @@
-import { useState, useMemo, useReducer } from 'react'
+import { useState, useMemo, useRef } from 'react'
 import './App.css'
 
 const letters = "abcdefghijklmnopqrstuvwxyz";
@@ -6,12 +6,13 @@ const numbers = "0123456789";
 const symbols = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~";
 
 function App() {
-  const [fullName, setFullName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [specialization, setSpecialization] = useState('');
-  const [yearsOfExperience, setYearsOfExperience] = useState('');
   const [selfDescription, setSelfDescription] = useState('');
+
+  const fullNameRef = useRef()
+  const specializationRef = useRef()
+  const yearsOfExperienceRef = useRef()
 
   const specs = ['Your specialization', 'Full Stack', 'Frontend', 'Backend'];
 
@@ -39,6 +40,9 @@ function App() {
 
   const submit = (e) => {
     e.preventDefault();
+    const fullName = fullNameRef.current.value
+    const specialization = specializationRef.current.value
+    const yearsOfExperience = yearsOfExperienceRef.current.value
     if (
       !fullName.trim() ||
       !username.trim() ||
@@ -76,8 +80,7 @@ function App() {
             <input
               type="text"
               name='fullName'
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
+              ref={fullNameRef}
               placeholder='Insert your name here...'
             />
           </label>
@@ -116,15 +119,13 @@ function App() {
               <p>Years of experience</p>
               <input
                 type="number"
-                name='Years of experience'
-                onChange={(e) => setYearsOfExperience(e.target.value)}
+                ref={yearsOfExperienceRef}
               />
             </label>
           </div>
           <select
             name='specializations'
-            value={specialization}
-            onChange={(e) => setSpecialization(e.target.value)}
+            ref={specializationRef}
           >
             {specs.map((s, i) => (
               <option key={i} value={s} onSelect={() => setSpecialization(e.target.value, i)}>{s}</option>
