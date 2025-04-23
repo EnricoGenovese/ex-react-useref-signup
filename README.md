@@ -18,3 +18,11 @@ Aggiungi una validazione al submit, verificando che:
 - La Specializzazione sia selezionata
 
 Al submit, se il form è valido, stampa in console i dati.
+
+Milestone 2: Validare in tempo reale
+
+Aggiungere la validazione in tempo reale dei seguenti campi:
+
+Username: Deve contenere solo caratteri alfanumerici e almeno 6 caratteri (no spazi o simboli).
+Password: Deve contenere almeno 8 caratteri, 1 lettera, 1 numero e 1 simbolo.
+Descrizione: Deve contenere tra 100 e 1000 caratteri (senza spazi iniziali e finali).
