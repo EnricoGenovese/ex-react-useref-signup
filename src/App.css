@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+h2 {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+input,
+select {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+textarea {
+    width: 50%;
+    max-height: 100px;
+    height: 100px;
+}
